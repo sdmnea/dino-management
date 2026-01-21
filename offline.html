@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - Dino Management</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #9ACD32, #8A2BE2);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .offline-container {
+            max-width: 400px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+            color: #2F1800;
+        }
+
+        h1 {
+            color: #8A2BE2;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            color: #9ACD32;
+        }
+
+        button {
+            background: linear-gradient(135deg, #9ACD32, #8A2BE2);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="offline-container">
+        <div class="icon">📶</div>
+        <h1>Anda Sedang Offline</h1>
+        <p>Koneksi internet Anda terputus. Beberapa fitur mungkin tidak tersedia.</p>
+        <p>Fitur yang tersedia offline:</p>
+        <ul style="text-align: left; margin: 20px 0; color: #666;">
+            <li>Lihat dashboard (data cached)</li>
+            <li>Input data penjualan (akan disimpan sementara)</li>
+            <li>Lihat produk</li>
+        </ul>
+        <button onclick="window.location.reload()">Coba Lagi</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+RewriteEngine On
+
+# Izinkan akses langsung ke file dan folder tertentu
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Izinkan akses ke folder assets dan file penting
+RewriteRule ^(login\.php|logout\.php|dashboard\.php|index\.php|test_db\.php)$ - [L]
+RewriteRule ^assets/(.*)$ - [L]
+RewriteRule ^config/(.*)$ - [L,R=403]  # Blokir akses langsung ke config
+RewriteRule ^includes/(.*)$ - [L,R=403] # Blokir akses langsung ke includes
+RewriteRule ^modules/(.*)$ - [L,R=403]  # Blokir akses langsung ke modules
+
+# Redirect semua request lain ke index.php
+RewriteRule ^(.*)$ index.php?page=$1 [QSA,L]
+
+# Nonaktifkan directory listing
+Options -Indexes
+
+# Custom error pages
+ErrorDocument 404 /404.php
+ErrorDocument 403 /403.php
+ErrorDocument 500 /500.php
+
+# Security headers
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
